@@ -16,7 +16,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 public class Box {
-    private String restMode;
+    private String restMode="";
     private List<Events> logs = new ArrayList<>();
 
 
@@ -43,9 +43,8 @@ public class Box {
                 break;
             case "R":
             default:
-                Utils.print(logs);
+                result.append(Utils.print(logs));
                 break;
-
         }
         return result.toString();
     }
