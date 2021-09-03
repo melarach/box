@@ -1,7 +1,7 @@
 ## The box has multiple modes
 
 - R : Rest mode
-- S : secure mode : base64
+- S : Secure mode : *base64*
 
 ## Your mission
 - Fork this repo 
