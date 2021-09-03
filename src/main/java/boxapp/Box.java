@@ -1,22 +1,17 @@
+package boxapp;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.apache.http.HttpEntity;
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
-import org.apache.http.util.EntityUtils;
-import service.Events;
+import model.Events;
 import service.Utils;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @Data
 @NoArgsConstructor
 public class Box {
-    private String restMode="";
+    private String restMode = "";
     private List<Events> logs = new ArrayList<>();
 
 
@@ -42,6 +37,8 @@ public class Box {
                 result.append(")");
                 break;
             case "R":
+                result.append(Utils.eventsToJson(logs));
+                break;
             default:
                 result.append(Utils.print(logs));
                 break;
@@ -54,17 +51,9 @@ public class Box {
         return logs.size();
     }
 
-    public void decrypt(String w3siaWQiOiJldmVudDEifSx7ImlkIjoiZXZlbnQyIn1d) {
+    public void decrypt(String message) {
         try {
-            CloseableHttpClient httpClient = HttpClients.createDefault();
-            HttpGet request = new HttpGet("http://localhost:8080/decrypt");
-            request.addHeader("mode", restMode);
-            request.addHeader("message", w3siaWQiOiJldmVudDEifSx7ImlkIjoiZXZlbnQyIn1d);
-            CloseableHttpResponse response = httpClient.execute(request);
-            HttpEntity entity = response.getEntity();
-            if (entity != null) {
-                String result = EntityUtils.toString(entity);
-            }
+            logs.addAll(Utils.jsonToEvents(Utils.sendRequestToApi(message, restMode)));
         } catch (Exception e) {
             e.printStackTrace();
         }

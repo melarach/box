@@ -6,7 +6,7 @@
 ## Your mission
 - Fork this repo 
 - Fix all red tests
-- Implements the Box Api using spring boot, ONE api must be implemented
+- Implements the boxapp.Box Api using spring boot, ONE api must be implemented
   - decrypt a box content and return the json result
     
 ## Optional mission

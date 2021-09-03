@@ -1,6 +1,6 @@
+import boxapp.Box;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 @SpringBootTest(classes={BoxTest.class})
@@ -41,7 +41,7 @@ class BoxTest {
     @Test
     void test_rest_secure_mode(){
         Box box = new Box("R");
-        box.decrypt("W3siaWQiOiJldmVudDEifSx7ImlkIjoiZXZlbnQyIn0seyJpZCI6ImV2ZW50MyJ9XQ==");
+        box.decrypt("ZXZlbnQxLWV2ZW50Mi1ldmVudDM=");
         assertEquals(false, box.isEmpty());
         assertEquals(3, box.count());
         assertEquals("[{\"id\":\"event1\"},{\"id\":\"event2\"},{\"id\":\"event3\"}]", box.readLogs());
