@@ -16,7 +16,7 @@ Wrap all the code into a docker image a push it to docker Hub
 email the github repo with dockerhub repo if you did it to : *boufnichel.mohamed@gmail.com* 
 
 ## to start correctly the projet, what should i do ?
-- mvn dockerfile:build // to build
+- mvn clean install // to build
 - Run: docker run -p 8080:8080 --rm mouhcineee/test:0.0.1-SNAPSHOT //to run
 - mvn dockerfile:push -Ddockerfile.useMavenSettingsForAuth=true // to push image to server
 
