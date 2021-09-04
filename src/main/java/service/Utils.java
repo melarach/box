@@ -25,14 +25,14 @@ public class Utils {
 
     public static String print(List<Events> logs) {
         StringBuilder result = new StringBuilder();
-        for (Events log : logs) {
+        logs.forEach(log -> {
             if (result.length() == 0) {
                 result.append(log.getId());
             } else {
                 result.append(SEPARATEUR);
                 result.append(log.getId());
             }
-        }
+        });
         return result.toString();
     }
 
