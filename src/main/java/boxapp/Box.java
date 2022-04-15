@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import boxapp.model.Events;
+import boxapp.model.WrapperBox;
 import boxapp.service.Utils;
 
 @Data
@@ -33,9 +34,7 @@ public class Box {
         StringBuilder result = new StringBuilder();
         switch (restMode) {
             case "S":
-                result.append("Secure(");
-                result.append(Utils.print(logs));
-                result.append(")");
+                result.append(WrapperBox.getSecureLog(Utils.print(logs)));
                 break;
             case "R":
                 result.append(Utils.eventsToJson(logs));
