@@ -2,11 +2,12 @@ package boxapp;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import model.Events;
-import service.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import boxapp.model.Events;
+import boxapp.service.Utils;
 
 @Data
 @NoArgsConstructor
@@ -53,7 +54,7 @@ public class Box {
 
     public void decrypt(String message) {
         try {
-            logs.addAll(Utils.jsonToEvents(Utils.sendRequestToApi(message, restMode)));
+            logs.addAll(Utils.sendRequestToApi(message, restMode));
         } catch (Exception e) {
             e.printStackTrace();
         }

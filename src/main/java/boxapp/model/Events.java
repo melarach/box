@@ -1,4 +1,4 @@
-package model;
+package boxapp.model;
 
 public class Events {
     private String id;
